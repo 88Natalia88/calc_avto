@@ -49,14 +49,14 @@
         <option value="xf">XF</option>
     </select>
 </div>
-<div class="main-1">
 <div class="fuelAll">
 <label for="fuel">Тип топлива</label>
+<div>
 <input type="radio" name="fuel" id="petrol" checked>Бензин <br>
 <input type="radio" name="fuel" id="diesel">Дизель<br>
 <input type="radio" name="fuel" id="gas">Газ<br>
 <input type="radio" name="fuel" id="electricity">Электричество
-</div>
+</div></div>
 <div class="volumeAll">
 <label for="volume">Объем двигателя, см<sup>3</sup></label>
 <input type="text" name="volume" id="volume">
@@ -67,29 +67,32 @@
 </div>
 <div class="stateAll">
     <label for="state">Состояние автомобиля</label>
-    <input type="radio" name="state" checked>Новый<br>
-    <input type="radio" name="state">Подержаный<br>
-    <input type="radio" name="state">Битый<br>
-</div>
+    <div>
+    <input type="radio" name="state" checked id="new">Новый<br>
+    <input type="radio" name="state" id="used">Подержаный<br>
+    <input type="radio" name="state" id="broken">Битый<br>
+</div></div>
 <div class="ownersAll">
     <label for="owners">Количество владельцев</label>
-    <input type="radio" name="owners" checked>1-2 владельца<br>
-    <input type="radio" name="owners">более 3-х владельцев
-</div>
+    <div>
+    <input type="radio" name="owners" checked id="one">1-2 владельца<br>
+    <input type="radio" name="owners" id="more">более 3-х владельцев
+</div></div>
 <div class="ageAll">
     <label for="age">Возраст автомобиля</label>
-<input type="radio" name="age" checked>Меньше 3-х лет<br>
-<input type="radio" name="age">от 3 - 5 лет<br>
-<input type="radio" name="age">от 5 - 7 лет<br>
-<input type="radio" name="age">Больше 7 лет
-</div>
+    <div>
+<input type="radio" name="age" checked id="young">Меньше 3-х лет<br>
+<input type="radio" name="age" id="middle">от 3 - 5 лет<br>
+<input type="radio" name="age" id="old">от 5 - 7 лет<br>
+<input type="radio" name="age" id="oldest">Больше 7 лет
+</div></div>
 <div class="paymentAll">
     <label for="payment">Способ оплаты</label>
-    <input type="radio" name="payment" checked>Картой<br>
-    <input type="radio" name="payment">Наличными<br>
-    <input type="radio" name="payment">Счет на юридическое лицо
-</div>
-</div>
+    <div>
+    <input type="radio" name="payment" checked id="card">Картой<br>
+    <input type="radio" name="payment" id=" cash">Наличными<br>
+    <input type="radio" name="payment" id="check">Счет на юридическое лицо
+</div></div>
 <div class="button">
     <input type="button" id="btn" value="Рассчитать">
 </div>

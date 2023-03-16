@@ -20,6 +20,7 @@ h1{
 }
 input, select{
     border: 2px solid #0795aa;
+    border-radius: 5px;
     background-color: inherit
     ;
 }
@@ -27,15 +28,10 @@ select{
     width: 100px;
 }
 .fuelAll, .volumeAll, .powerAll, .stateAll, .ownersAll, .ageAll, .paymentAll{
-    clear: both; 
-    text-align: right;
-    line-height:25px;
-    padding-right: 90px;
-}
-label {
-    float:left;
+    display: flex;
     padding-left: 90px;
-    
+    justify-content: space-between;
+    padding-right: 90px;
 }
 .brand, .model, .button{
     padding-left: 90px;
@@ -43,3 +39,20 @@ label {
 #btn{
     background-color: #d6eef6;
 }
+
+/*.fuellAll__radio{
+    padding-left: 80px;
+}
+.paymentAll__radio{
+    padding-left: 54px;
+}
+.ageAll__radio{
+    padding-left: 22px;
+}
+.stateAll__radio, .volumeAll__text{
+    padding-left: 5px;
+}
+.powerAll__text{
+    padding-left: 58px;
+}*/
+
