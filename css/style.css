@@ -1,13 +1,16 @@
 *{
     margin: 5px;
 }
+body{
+    background-image: url(../img/pattern.jpg);
+}
 .main{
     width: 600px;
-    border: 2px solid lightblue;
+    border: 2px solid #0795aa;
     background-color: azure;
 }
 h1{
-    background-color: lightblue;
+    background-color: #d6eef6;
     text-align: center;
 }
 #form{
@@ -16,8 +19,27 @@ h1{
     align-items: center;
 }
 input, select{
-    border: 2px solid lightblue;
+    border: 2px solid #0795aa;
+    background-color: inherit
+    ;
 }
 select{
     width: 100px;
+}
+.fuelAll, .volumeAll, .powerAll, .stateAll, .ownersAll, .ageAll, .paymentAll{
+    clear: both; 
+    text-align: right;
+    line-height:25px;
+    padding-right: 90px;
+}
+label {
+    float:left;
+    padding-left: 90px;
+    
+}
+.brand, .model, .button{
+    padding-left: 90px;
+}
+#btn{
+    background-color: #d6eef6;
 }
