@@ -11,18 +11,18 @@
     <form id="form"> 
         <div class="main">
             <h1>Калькулятор стоимости автомобиля</h1>
-    <div>
-<select>
-    <option value="brand">Марка</option>
+    <div class="brand">
+<select class="brand__select">
+    <option value="" disabled selected hidden>Марка</option>
     <option value="opel">Opel</option>
     <option value="reno">Reno</option>
     <option value="mazda">Mazda</option>
     <option value="jaguar">Jaguar</option>
 </select>
 </div>
-<div>
-    <select>
-        <option value="model">Модель</option>
+<div class="model">
+    <select class="model__select">
+        <option value="" disabled selected hidden>Модель</option>
         <option value="astra">Astra</option>
         <option value="zafira">Zafira</option>
         <option value="mokka">Mokka</option>
@@ -49,50 +49,50 @@
         <option value="xf">XF</option>
     </select>
 </div>
-<div>
+<div class="fuelAll">
 <label for="fuel">Тип топлива</label>
-<input type="radio" name="fuel" id="petrol">Бензин <br>
+<input type="radio" name="fuel" id="petrol" checked>Бензин <br>
 <input type="radio" name="fuel" id="diesel">Дизель<br>
 <input type="radio" name="fuel" id="gas">Газ<br>
 <input type="radio" name="fuel" id="electricity">Электричество
 </div>
-<div>
+<div class="volumeAll">
 <label for="volume">Объем двигателя, см<sup>3</sup></label>
 <input type="text" name="volume" id="volume">
 </div>
-<div>
+<div class="powerAll">
     <label for="power">Мощность, л.с.</label>
     <input type="text" name="power" id="power">
 </div>
-<div>
+<div class="stateAll">
     <label for="state">Состояние автомобиля</label>
-    <input type="radio" name="state">Новый<br>
+    <input type="radio" name="state" checked>Новый<br>
     <input type="radio" name="state">Подержаный<br>
     <input type="radio" name="state">Битый<br>
 </div>
-<div>
+<div class="ownersAll">
     <label for="owners">Количество владельцев</label>
-    <input type="radio" name="owners">1-2 владельца<br>
+    <input type="radio" name="owners" checked>1-2 владельца<br>
     <input type="radio" name="owners">более 3-х владельцев
 </div>
-<div>
+<div class="ageAll">
     <label for="age">Возраст автомобиля</label>
-<input type="radio" name="age">Меньше 3-х лет<br>
+<input type="radio" name="age" checked>Меньше 3-х лет<br>
 <input type="radio" name="age">от 3 - 5 лет<br>
 <input type="radio" name="age">от 5 - 7 лет<br>
 <input type="radio" name="age">Больше 7 лет
 </div>
-<div>
+<div class="paymentAll">
     <label for="payment">Способ оплаты</label>
-    <input type="radio" name="payment">Картой<br>
+    <input type="radio" name="payment" checked>Картой<br>
     <input type="radio" name="payment">Наличными<br>
     <input type="radio" name="payment">Счет на юридическое лицо
 </div>
-<div>
+<div class="button">
     <input type="button" id="btn" value="Рассчитать">
 </div>
-<div>
-    <p id="price"></p>
+<div class="text">
+    <p id="text-price"></p>
 </div>
 </div>
 </form>
