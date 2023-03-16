@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form"> 
+        <div class="main">
+            <h1>Калькулятор стоимости автомобиля</h1>
+    <div>
+<select>
+    <option value="brand">Марка</option>
+    <option value="opel">Opel</option>
+    <option value="reno">Reno</option>
+    <option value="mazda">Mazda</option>
+    <option value="jaguar">Jaguar</option>
+</select>
+</div>
+<div>
+    <select>
+        <option value="model">Модель</option>
+        <option value="astra">Astra</option>
+        <option value="zafira">Zafira</option>
+        <option value="mokka">Mokka</option>
+        <option value="insignia">Insignia</option>
+        <option value="corsa">Corsa</option>
+        <option value="logan">Logan</option>
+        <option value="sandero">Sandero</option>
+        <option value="duster">Duster</option>
+        <option value="kaptur">Kaptur</option>
+        <option value="arkana">Arkana</option>
+        <option value="master">Master</option>
+        <option value="cx-5">CX-5</option>
+        <option value="cx-9">CX-9</option>
+        <option value="cx-3">CX-3</option>
+        <option value="cx-7">CX-7</option>
+        <option value="mazda 3">Mazda 3</option>
+        <option value="mazda 2">Mazda 2</option>
+        <option value="mazda 5">Mazda 5</option>
+        <option value="e-pace">E-Pace</option>
+        <option value="f-pace">F-Pace</option>
+        <option value="i-pace">I-Pace</option>
+        <option value="f-type">F-Type</option>
+        <option value="xe">XE</option>
+        <option value="xf">XF</option>
+    </select>
+</div>
+<div>
+<label for="fuel">Тип топлива</label>
+<input type="radio" name="fuel" id="petrol">Бензин <br>
+<input type="radio" name="fuel" id="diesel">Дизель<br>
+<input type="radio" name="fuel" id="gas">Газ<br>
+<input type="radio" name="fuel" id="electricity">Электричество
+</div>
+<div>
+<label for="volume">Объем двигателя, см<sup>3</sup></label>
+<input type="text" name="volume">
+</div>
+<div>
+    <label for="power">Мощность, л.с.</label>
+    <input type="text" name="power">
+</div>
+<div>
+    <label for="state">Состояние автомобиля</label>
+    <input type="radio" name="state">Новый<br>
+    <input type="radio" name="state">Подержаный
+</div>
+<div>
+    <label for="owners">Количество владельцев</label>
+    <input type="radio" name="owners">1-2 владельца<br>
+    <input type="radio" name="owners">более 3-х владельцев
+</div>
+<div>
+    <label for="age">Возраст автомобиля</label>
+<input type="radio" name="age">Меньше 3-х лет<br>
+<input type="radio" name="age">от 3 - 5 лет<br>
+<input type="radio" name="age">от 5 - 7 лет<br>
+<input type="radio" name="age">Больше 7 лет
+</div>
+<div>
+    <label for="payment">Способ оплаты</label>
+    <input type="radio" name="payment">Картой<br>
+    <input type="radio" name="payment">Наличными<br>
+    <input type="radio" name="payment">Счет на юридическое лицо
+</div>
+<div>
+    <input type="button" id="btn" value="Рассчитать">
+</div>
+<div>
+    <p id="price"></p>
+</div>
+</div>
+</form>
+    <script src="js/index.js"></script>
+</body>
+</html>
