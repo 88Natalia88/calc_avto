@@ -28,9 +28,11 @@ select{
     width: 100px;
 }
 .fuelAll, .volumeAll, .powerAll, .stateAll, .ownersAll, .ageAll, .paymentAll{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: .5em;
     padding-left: 90px;
-    justify-content: space-between;
     padding-right: 90px;
 }
 .brand, .model, .button{
