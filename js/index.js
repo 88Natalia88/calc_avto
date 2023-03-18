@@ -37,12 +37,12 @@ const jaguar = {'E-Pace' : 'E-Pace',
 brand.addEventListener('change', function() {
     const n = this.value;
     //console.log(n)
-})*/
+})
   // 2 вариант
 brand.onchange = function(){
     let item = brand.value;
     //console.log(item)
-}
+}*/
 
  // получение текста из option
 brand.addEventListener('change', changeBrand);
