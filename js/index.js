@@ -10,9 +10,16 @@ const age = document.querySelector('.ageAll');
 const payment = document.querySelector('.paymentAll');
 
 //console.log(fuel)
+const opel = ['Astra','Mokka', 'Zafira', 'Corsa'];
+const reno = ['Logan', 'Sandero', 'Duster', 'Kaptur'];
+const mazda = ['CX-5', 'CX-9', 'CX-3', 'CX-7'];
+const jaguar = ['E-Pace', 'F-Pace', 'I-Pace', 'F-Type'];
+//console.log(mazda)
+
+
 
 document.getElementById('btn').onclick = function() {
-var value = document.querySelector('.model__select').selectedOptions[0].value;
+var value = document.querySelector('.brand__select').selectedOptions[0].value;
 document.getElementById("text-price").innerHTML = value;
 console.log(value);
 }

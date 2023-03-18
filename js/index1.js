@@ -3,8 +3,8 @@
 //   помощью только регулярного выражения.
 const years = document.getElementById('year');
 const result = document.getElementById('result');
-const btn = document.getElementById('btn');
-btn.addEventListener('click', yearString); 
+const button = document.getElementById('button');
+button.addEventListener('click', yearString); 
 function yearString(){
     regexp = /^(20\d\d|2100)$/;
     let year = years.value;
@@ -18,32 +18,34 @@ function yearString(){
 //   содержащие две одинаковые, следующие друг за другом буквы.
 
 const text = document.getElementById('text');
-const btn1 = document.getElementById('btn1');
-btn1.addEventListener('click', capitalize);
-function capitalize(){
-    let b = /\W*\w*(\w)\1\w*\W*/g;
-    let textNew1 = text.value.replace(b, " ");
+const btn = document.getElementById('btn');
+//btn.addEventListener('click', function(){
+    //let b = /\W*\w*(\w)\1\w*\W*/g;
+   // let textNew1 = text.value.replace(b, " ");
     //text.value = text.value.replace("([a-z])\\1+", "");//(/\W*\w*(\w)\1\w*\W*/g, " ");
-    document.getElementById('text1').textContent = textNew1;
-}
+   // document.getElementById('result').textContent = textNew1;
+//});
 
 //console.log(text)
 
 // 3.Удалите одной регуляркой все повторяющиеся слова из строки,
 // например для 'ааву ааа ааа ап' должно вернуть 'ааву xxx ап'.
-
-btn1.addEventListener('click', replaced);
-function replaced(){
+const text1 = document.getElementById('text1');
+const btn1 = document.getElementById('btn1');
+btn1.addEventListener('click', function (){
     let a = /\b(\w+)\s+\1/g;
-    let textNew = text.value.replace(a, "$1");
-    document.getElementById('text1').textContent = textNew;
-}
+    let textNew1 = text1.value.replace(a, "$1");
+    document.getElementById('result1').textContent = textNew1;
+});
+
  // 4. Решите предыдущую задачу с учётом того, что слово может повторяться много раз.
  // Например  'ааву ааа ааа ааа ап ааа ааа ааа ап' должно вернуть 'ааву xxx ап'
- btn1.addEventListener('click', clean);
+ const text2 = document.getElementById('text2');
+const btn2 = document.getElementById('btn2');
+ btn2.addEventListener('click', clean);
  function clean(){
-    let c = /(\w+\s)\1+/g;
-    let textNew2 = text.value.replace(c, "$1");
-    document.getElementById('text1').textContent = textNew2;
+    //let c = '/(\w+\s)\1+/g';
+    let textNew2 = text2.value.replace(/(\w+\s)\1+/g, " ");
+    document.getElementById('result2').textContent = textNew2;
  }
  
