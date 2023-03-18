@@ -19,33 +19,41 @@ function yearString(){
 
 const text = document.getElementById('text');
 const btn = document.getElementById('btn');
-//btn.addEventListener('click', function(){
-    //let b = /\W*\w*(\w)\1\w*\W*/g;
-   // let textNew1 = text.value.replace(b, " ");
-    //text.value = text.value.replace("([a-z])\\1+", "");//(/\W*\w*(\w)\1\w*\W*/g, " ");
-   // document.getElementById('result').textContent = textNew1;
-//});
 
-//console.log(text)
+btn.addEventListener('click', changeOne);
+function changeOne(){
+let textNew = text.value.replace(/([a-z])\1+/g, " ");
+document.getElementById('result1').textContent = textNew;
+
+   //console.log(textNew)
+}
+
+
 
 // 3.Удалите одной регуляркой все повторяющиеся слова из строки,
 // например для 'ааву ааа ааа ап' должно вернуть 'ааву xxx ап'.
+
 const text1 = document.getElementById('text1');
 const btn1 = document.getElementById('btn1');
+
 btn1.addEventListener('click', function (){
-    let a = /\b(\w+)\s+\1/g;
-    let textNew1 = text1.value.replace(a, "$1");
-    document.getElementById('result1').textContent = textNew1;
+    let textNew1 = text1.value.replace(/\b(\w+)\s+\1/ug, "$1");
+    document.getElementById('result2').textContent = textNew1;
+
+    //console.log(textNew1)
 });
+
 
  // 4. Решите предыдущую задачу с учётом того, что слово может повторяться много раз.
  // Например  'ааву ааа ааа ааа ап ааа ааа ааа ап' должно вернуть 'ааву xxx ап'
- const text2 = document.getElementById('text2');
+
+const text2 = document.getElementById('text2');
 const btn2 = document.getElementById('btn2');
- btn2.addEventListener('click', clean);
- function clean(){
-    //let c = '/(\w+\s)\1+/g';
-    let textNew2 = text2.value.replace(/(\w+\s)\1+/g, " ");
-    document.getElementById('result2').textContent = textNew2;
- }
- 
+
+btn2.addEventListener('click', changeThree);
+function changeThree(){
+    let textNew2 = text2.value.replace(/(\w+\s)\1+/ug, "$1");
+    document.getElementById('result3').textContent = textNew2;
+    
+    //console.log(textNew2)
+}
