@@ -44,16 +44,17 @@ brand.onchange = function(){
     //console.log(item)
 }*/
 
+
  // получение текста из option
-brand.addEventListener('change', changeBrand);
-function changeBrand(){
-    let index = brand.selectedIndex; //нашли все индексы наших option
+brand.addEventListener('change', addModel);
+function addModel(){
+    //let index = brand.selectedIndex; //нашли все индексы наших option
     let item1 = brand.options; //список всех наших option
-    let brandNew = item1[index].textContent;
+    //let brandNew = item1[index].textContent;
     //console.log(index)
     //console.log(item1)
-    //document.getElementById("text-price").innerHTML = brandNew;
-    console.log(brandNew);
+    document.querySelector('.model__select').innerHTML = null;
+    //console.log(brandNew);
     if(item1[1].selected === true){
         for(let id in opel){
             const option = document.createElement('option');
@@ -87,7 +88,13 @@ function changeBrand(){
         }
     }
 }
-
+model.addEventListener('change', changeModel);
+function changeModel(){
+    let model1 = document.querySelector('.model__select').value;
+    console.log(model1)
+    let index1 = model.options;
+    console.log(index1)
+}
 
 // создание объекта и из него селект
 /*for(let id in opel){
