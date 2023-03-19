@@ -41,3 +41,6 @@ select{
 #btn{
     background-color: #d6eef6;
 }
+.ownersAll, .ageAll{
+    display: none;
+}
