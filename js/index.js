@@ -51,7 +51,7 @@ const jaguar = {'E-Pace' : 'E-Pace',
 'I-Pace' : 'I-Pace',
 'F-Type' : 'F-Type',
 };
-    console.log(jaguar['F-Pace'])
+// console.log(jaguar['F-Pace'])
 
 
 
@@ -135,11 +135,23 @@ for(let id in jaguar){
     //document.querySelector('.model__select').append(option);
 }*/
 
-const pay = document.querySelectorAll('payment');
-console.log(pay);
-
-
+//добавление класса с владельцами и возрастом авто
+const radios = document.querySelectorAll('input[type=radio][name="state"]');
 const ownersAll = document.querySelector('.ownersAll');
+const ageAll = document.querySelector('.ageAll');
+radios.forEach(function (radio, i){
+radio.addEventListener('change', function(){
+    if(used.checked || broken.checked){
+        ownersAll.style.display = "grid";
+        ageAll.style.display = "grid";
+    }else {
+        ownersAll.style.display = "none";
+        ageAll.style.display = "none";
+    }
+    //console.log(radio.value);
+})
+})
+
 document.getElementById('btn').onclick = function() {
 //let value = document.querySelector('.brand__select').selectedOptions[0].value;
 let index = brand.selectedIndex; //нашли все индексы наших option
@@ -147,18 +159,33 @@ let item1 = brand.options; //список всех наших option
 let brandNew = item1[index].textContent;
 let modelNew = model.value;
 //console.log(value);
-if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.value == 1.4 && power.value == 104 && card.checked){
-    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 1 мил 900 тыс рублей. Оплата будет картой`;
-} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.value == 1.6 && power.value == 115){
-    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 2 мил 500 тыс рублей`;
-} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.value == 2 && power.value == 130){
-    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мил рублей`; 
-} else if(opel['Astra'] === modelNew  && newAuto.checked && diesel.checked && volume.value == 2 && power.value == 130){
-    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мил 300 тыс рублей`; 
-} else if(opel['Astra'] === modelNew  && (newAuto.checked || used.checked || broken.checked) && diesel.checked && (volume.value == 1.4 || 1.6) && (power.value == 104 || 115)){
+if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.value <= 1.4 && power.value <= 104 && card.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 1 мл 900 тыс рублей. Оплата будет картой`;
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.value <= 1.4 && power.value <= 104 && cash.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 1 мл 900 тыс рублей. Оплата будет наличными`;
+}else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.value <= 1.4 && power.value <= 104 && check.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 1 мл 900 тыс рублей. Оплата будет на счет юридического лица`;
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && (volume.value > 1.4 && volume.value <= 1.6) && (power.value >104 && power.value <= 115) && card.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 2 мл 500 тыс рублей. Оплата будет картой`;
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && (volume.value > 1.4 && volume.value <= 1.6) && (power.value >104 && power.value <= 115) && cash.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 2 мл 500 тыс рублей. Оплата будет наличными`;
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && (volume.value > 1.4 && volume.value <= 1.6) && (power.value >104 && power.value <= 115) && check.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 2 мл 500 тыс рублей. Оплата будет на счет юридического лица`;
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && (volume.value > 1.6 && volume.value <= 2) && (power.value >115 && power.value <= 130) && card.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл рублей. Оплата будет картой`; 
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && (volume.value > 1.6 && volume.value <= 2) && (power.value >115 && power.value <= 130) && cach.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл рублей. Оплата будет наличными`; 
+} else if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && (volume.value > 1.6 && volume.value <= 2) && (power.value >115 && power.value <= 130) && check.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл рублей. Оплата будет на счет юридического лица`; 
+} else if(opel['Astra'] === modelNew  && newAuto.checked && diesel.checked && (volume.value > 1.6 && volume.value <= 2) && power.value == 130 && card.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл 300 тыс рублей. Оплата будет картой`; 
+} else if(opel['Astra'] === modelNew  && newAuto.checked && diesel.checked && (volume.value > 1.6 && volume.value <= 2) && power.value == 130 && cach.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл 300 тыс рублей. Оплата будет наличными`; 
+} else if(opel['Astra'] === modelNew  && newAuto.checked && diesel.checked && (volume.value > 1.6 && volume.value <= 2) && power.value == 130 && check.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл 300 тыс рублей. Оплата будет на счет юридического лица`; 
+} else if(opel['Astra'] === modelNew  && (newAuto.checked || used.checked || broken.checked) && diesel.checked && volume.value <= 1.6 && power.value < 130){
     document.getElementById("text-price").innerHTML = `Сожалеем. Но с такими параметрами не предусмотено топливо дизель`; 
-} else if(opel['Astra'] === modelNew  && used.checked && petrol.checked && volume.value == 1.4 && power.value == 104){
-    ownersAll.style = "display:initial";
-    document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 1 мил 300 тыс рублей`; 
+} else if(opel['Astra'] === modelNew  && used.checked && petrol.checked && volume.value <= 1.4 && power.value <= 104 && one.checked && young.checked && card.checked){
+    document.getElementById("text-price").innerHTML = `Вы выбрали подержаный ${brandNew} ${modelNew}. Стоимость составит: 1 мл 300 тыс рублей. Оплата будет картой`; 
 }
 }

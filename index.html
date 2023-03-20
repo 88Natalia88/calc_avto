@@ -48,8 +48,8 @@
 <div class="fuelAll">
 <label for="fuel">Тип топлива</label>
 <div>
-<input type="radio" name="fuel" id="petrol" checked>Бензин <br>
-<input type="radio" name="fuel" id="diesel">Дизель<br>
+<input type="radio" name="fuel" id="petrol" >Бензин <br>
+<input type="radio" name="fuel" id="diesel" checked>Дизель<br>
 <input type="radio" name="fuel" id="gas">Газ<br>
 <input type="radio" name="fuel" id="electricity">Электричество
 </div></div>
@@ -64,9 +64,9 @@
 <div class="stateAll">
     <label for="state">Состояние автомобиля</label>
     <div>
-    <input type="radio" name="state" checked id="new">Новый<br>
-    <input type="radio" name="state" id="used">Подержаный<br>
-    <input type="radio" name="state" id="broken">Битый<br>
+    <input type="radio" name="state" id="new" value="new">Новый<br>
+    <input type="radio" name="state" id="used" value="used" checked>Подержаный<br>
+    <input type="radio" name="state" id="broken" value="broken">Битый<br>
 </div></div>
 <div class="ownersAll">
     <label for="owners">Количество владельцев</label>
@@ -77,16 +77,16 @@
 <div class="ageAll">
     <label for="age">Возраст автомобиля</label>
     <div>
-<input type="radio" name="age" checked id="young">Меньше 3-х лет<br>
-<input type="radio" name="age" id="middle">от 3 - 5 лет<br>
+<input type="radio" name="age" id="young">Меньше 3-х лет<br>
+<input type="radio" name="age" checked id="middle">от 3 - 5 лет<br>
 <input type="radio" name="age" id="old">от 5 - 7 лет<br>
 <input type="radio" name="age" id="oldest">Больше 7 лет
 </div></div>
 <div class="paymentAll">
     <label for="payment">Способ оплаты</label>
     <div id="pay">
-    <input type="radio" name="payment" checked id="card">Картой<br>
-    <input type="radio" name="payment" id=" cash">Наличными<br>
+    <input type="radio" name="payment" id="card">Картой<br>
+    <input type="radio" name="payment" checked id="cash">Наличными<br>
     <input type="radio" name="payment" id="check">Счет на юридическое лицо
 </div></div>
 <div class="button">
