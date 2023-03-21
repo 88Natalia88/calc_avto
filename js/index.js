@@ -184,7 +184,7 @@ if(opel['Astra'] === modelNew  && newAuto.checked && petrol.checked && volume.va
 } else if(opel['Astra'] === modelNew  && newAuto.checked && diesel.checked && (volume.value > 1.6 && volume.value <= 2) && power.value == 130 && check.checked){
     document.getElementById("text-price").innerHTML = `Вы выбрали новый ${brandNew} ${modelNew}. Стоимость составит: 3 мл 300 тыс рублей. Оплата будет на счет юридического лица`; 
 } else if(opel['Astra'] === modelNew  && (newAuto.checked || used.checked || broken.checked) && diesel.checked && volume.value <= 1.6 && power.value < 130){
-    document.getElementById("text-price").innerHTML = `Сожалеем. Но с такими параметрами не предусмотено топливо дизель`; 
+    document.getElementById("text-price").innerHTML = `Сожалеем. Но с такими параметрами не предусмотрено топливо дизель`; 
 } else if(opel['Astra'] === modelNew  && used.checked && petrol.checked && volume.value <= 1.4 && power.value <= 104 && one.checked && young.checked && card.checked){
     document.getElementById("text-price").innerHTML = `Вы выбрали подержаный ${brandNew} ${modelNew}. Стоимость составит: 1 мл 300 тыс рублей. Оплата будет картой`; 
 }
