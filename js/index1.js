@@ -23,7 +23,7 @@ const btn = document.getElementById('btn');
 
 btn.addEventListener('click', changeOne);
 function changeOne(){
-let textNew = text.value.replace(/([a-z])\1+/g, " ");
+let textNew = text.value.replace(/([a-z]+|[а-яА-ЯёЁ])\1+/g, " ");
 document.getElementById('result1').textContent = textNew;
 
    //console.log(textNew)
@@ -36,7 +36,7 @@ const text1 = document.getElementById('text1');
 const btn1 = document.getElementById('btn1');
 
 btn1.addEventListener('click', function (){
-    let textNew1 = text1.value.replace(/\b(\w+)\s+\1/ug, "$1");
+    let textNew1 = text1.value.replace(/\b(\w+)[\s]+\1/ug, "$1");
     document.getElementById('result2').textContent = textNew1;
 
     //console.log(textNew1)
@@ -55,3 +55,5 @@ function changeThree(){
     
     //console.log(textNew2)
 }
+
+
