@@ -172,6 +172,7 @@ fuels.forEach(function(fuel){
  //увеличение стоимости модели в зависимости от объема двигателя
 let percentVolume;
 let percentPower;
+//let percentSum = percent + (percentVolume + percentPower);
 btn.addEventListener('click', function(){
     let volumeNumber = volume.value;
     let powerNumber = power.value;
@@ -180,13 +181,30 @@ btn.addEventListener('click', function(){
     }else if(volumeNumber >= 1.2 && volumeNumber <= 1.8){
         percentVolume = percent + (percent / 100 * 0.1);
     } else if(volumeNumber > 1.8 && volumeNumber <= 2){
-        percentVolume = percent + (percent / 100 * 0.2);
+        percentVolume =percent + (percent / 100 * 0.2);
     } else if(volumeNumber > 2 && volumeNumber <= 3.3){
-        percentVolume = percent + (percent / 100 * 0.3);
+        percentVolume =percent + (percent / 100 * 0.3);
     } else if(volumeNumber >=3.5){
         percentVolume = percent + (percent / 100 * 0.4);
-    }
-    //console.log(volumeNumber)
+    } /*else if(powerNumber <= 100){
+        percentPower = percent;
+    } else if(powerNumber > 100 && powerNumber <= 125){
+        percentPower = percent / 100 * 0.2;
+    } else if(powerNumber > 125 && powerNumber <= 150){
+        percentPower = percent / 100 * 0.3;
+    } else if(powerNumber > 150 && powerNumber <= 175){
+        percentPower = percent / 100 * 0.4;
+    } else if(powerNumber > 175 && powerNumber <= 200){
+        percentPower = percent / 100 * 0.5;
+    } else if(powerNumber > 200 && powerNumber <= 225){
+        percentPower = percent / 100 * 0.6;
+    } else if(powerNumber > 225 && powerNumber <= 250){
+        percentPower = percent / 100 * 0.65;
+    } else if(powerNumber > 250){
+        percentPower = percent / 100 * 0.7;
+    }*/
+    //percentSum = percent + (percentVolume + percentPower);
+    console.log(percentVolume)
 })
 
 
