@@ -48,6 +48,7 @@ const jaguar = [{'value' : 'E-Pace', 'id' : 'E-Pace', 'price' : 5500000},
 {'value' : 'F-Type', 'id' : 'F-Type', 'price' : 12500000},
 ];
 
+
  // добавление моделей в селект
 brand.addEventListener('change', addModel);
 function addModel(){
@@ -131,8 +132,8 @@ function changePrice(){
     for(let i = 0; i < opel.length; i++){
         if(modelNew === opel[i].value){
             price = opel[i].price;
-        }
     }
+}
     for(let i = 0; i < reno.length; i++){
         if(modelNew === reno[i].value){
             price = reno[i].price;
@@ -150,6 +151,17 @@ function changePrice(){
     }
     //console.log(price);
 }
+let percent;
+btn.addEventListener('click', endPrice);
+function endPrice(){
+    let fuel = document.getElementsByName('fuel');
+    for(let i = 0; i < fuel.length; i++){
+        if(fuel[i].checked){
+            let fuel1 = fuel[i].value;
+            break;
+        }
+    }
+}
 
 
 document.getElementById('btn').onclick = function() {
@@ -160,17 +172,65 @@ document.getElementById('btn').onclick = function() {
 let percentDiesel = price + (price / 100 * 10);
 let percentGas = price + (price / 100 * 0.5);
 let percentElectricity = price + (price / 100 * 15);
+let percentUsedOneYoung = price - (price / 100 * 15);
+let percentUsedOneMiddle = price - (price / 100 * 25);
+let percentUsedOneOld = price - (price / 100 * 30);
+let percentUsedOneOldest = price - (price / 100 * 35);
+let percentBrokenOneYoung = price - (price / 100 * 40);
+let percentBrokenOneMiddle = price - (price / 100 * 45);
 
-if(newAuto.checked && petrol.checked){
+switch(newAuto.checked){
+    case petrol.checked: 
     document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${price}. Оплата будет производиться: ${pay}`;
-} else if(newAuto.checked && diesel.checked){
+    break;
+    case diesel.checked: 
     document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel}. Оплата будет производиться: ${pay}`;
-} else if(newAuto.checked && gas.checked){
+    break;
+    case gas.checked:
     document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas}. Оплата будет производиться: ${pay}`;
-} else if(newAuto.checked && electricity.checked){
-    document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity}. Оплата будет производиться: ${pay}`;
+    break;
+    case electricity.checked:
+    document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity}. Оплата будет производиться: ${pay}`;   
+    break;
 }
-
+switch (used.checked && one.checked){
+    case petrol.checked && young.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentUsedOneYoung}. Оплата будет производиться: ${pay}`;
+        break;
+    case diesel.checked && young.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel - (price / 100 * 15)}. Оплата будет производиться: ${pay}`;
+        break;
+    case gas.checked && young.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas - (price / 100 * 15)}. Оплата будет производиться: ${pay}`;
+        break;
+    case electricity.checked && young.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity - (price / 100 * 15)}. Оплата будет производиться: ${pay}`;
+        break;
+    case petrol.checked && middle.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentUsedOneMiddle}. Оплата будет производиться: ${pay}`;
+        break;
+    case diesel.checked && middle.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel - (price / 100 * 25)}. Оплата будет производиться: ${pay}`;
+        break;
+    case gas.checked && middle.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas - (price / 100 * 25)}. Оплата будет производиться: ${pay}`;
+        break;
+    case electricity.checked && middle.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity - (price / 100 * 25)}. Оплата будет производиться: ${pay}`;
+        break;
+    case petrol.checked && old.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentUsedOneOld}. Оплата будет производиться: ${pay}`;
+        break;
+    case diesel.checked && old.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel - (price / 100 * 30)}. Оплата будет производиться: ${pay}`;
+        break;
+    case gas.checked && old.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas - (price / 100 * 30)}. Оплата будет производиться: ${pay}`;
+        break; 
+    case electricity.checked && old.checked:
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity - (price / 100 * 30)}. Оплата будет производиться: ${pay}`;
+        break;          
+}
 
 }
 // создание объекта и из него селект
