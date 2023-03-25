@@ -151,20 +151,46 @@ function changePrice(){
     }
     //console.log(price);
 }
+
+//увеличение стоимости моделей в зависимости от топлива
 let percent;
-btn.addEventListener('click', endPrice);
-function endPrice(){
-    let fuel = document.getElementsByName('fuel');
-    for(let i = 0; i < fuel.length; i++){
-        if(fuel[i].checked){
-            let fuel1 = fuel[i].value;
-            break;
+let fuels = document.getElementsByName('fuel');
+fuels.forEach(function(fuel){
+    fuel.addEventListener('click', function(){
+        if(petrol.checked){
+            percent = price;
+        }else if(diesel.checked){
+            percent = price + (price / 100 * 10);
+        }else if(gas.checked){
+            percent = price + (price / 100 * 0.5);
+        }else if(electricity.checked){
+            percent = price + (price / 100 * 15);
         }
+        //console.log(percent)
+    })
+})
+ //увеличение стоимости модели в зависимости от объема двигателя
+let percentVolume;
+let percentPower;
+btn.addEventListener('click', function(){
+    let volumeNumber = volume.value;
+    let powerNumber = power.value;
+    if(volumeNumber <=1.1){
+        percentVolume = percent; 
+    }else if(volumeNumber >= 1.2 && volumeNumber <= 1.8){
+        percentVolume = percent + (percent / 100 * 0.1);
+    } else if(volumeNumber > 1.8 && volumeNumber <= 2){
+        percentVolume = percent + (percent / 100 * 0.2);
+    } else if(volumeNumber > 2 && volumeNumber <= 3.3){
+        percentVolume = percent + (percent / 100 * 0.3);
+    } else if(volumeNumber >=3.5){
+        percentVolume = percent + (percent / 100 * 0.4);
     }
-}
+    //console.log(volumeNumber)
+})
 
 
-document.getElementById('btn').onclick = function() {
+/*document.getElementById('btn').onclick = function() {
 //let value = document.querySelector('.brand__select').selectedOptions[0].value;
 //let index = brand.selectedIndex; //нашли все индексы наших option
 //let item1 = brand.options; //список всех наших option
