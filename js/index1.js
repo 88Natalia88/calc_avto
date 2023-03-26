@@ -23,7 +23,7 @@ const btn = document.getElementById('btn');
 
 btn.addEventListener('click', changeOne);
 function changeOne(){
-let textNew = text.value.replace(/([a-z]+|[а-яА-ЯёЁ])\1+/g, " ");
+let textNew = text.value.replace(/\W*\w*(\w)\1\w*\W*/ugi, " ");
 document.getElementById('result1').textContent = textNew;
 
    //console.log(textNew)

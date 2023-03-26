@@ -172,145 +172,71 @@ fuels.forEach(function(fuel){
  //увеличение стоимости модели в зависимости от объема двигателя
 let percentVolume;
 let percentPower;
-//let percentSum = percent + (percentVolume + percentPower);
+let percentSum = percent + (percentVolume + percentPower);
 btn.addEventListener('click', function(){
     let volumeNumber = volume.value;
-    let powerNumber = power.value;
     if(volumeNumber <=1.1){
         percentVolume = percent; 
     }else if(volumeNumber >= 1.2 && volumeNumber <= 1.8){
-        percentVolume = percent + (percent / 100 * 0.1);
+        percentVolume = (percent / 100 * 0.3);
     } else if(volumeNumber > 1.8 && volumeNumber <= 2){
-        percentVolume =percent + (percent / 100 * 0.2);
+        percentVolume =percent + (percent / 100 * 0.4);
     } else if(volumeNumber > 2 && volumeNumber <= 3.3){
-        percentVolume =percent + (percent / 100 * 0.3);
+        percentVolume =percent + (percent / 100 * 0.5);
     } else if(volumeNumber >=3.5){
-        percentVolume = percent + (percent / 100 * 0.4);
-    } /*else if(powerNumber <= 100){
+        percentVolume = percent + (percent / 100 * 0.6);
+    } 
+    percentSum = percent + (percentVolume + percentPower);
+    //console.log(percentVolume);
+    //console.log(percentSum);
+})
+btn.addEventListener('click', function(){
+    let powerNumber = power.value;
+    if(powerNumber <= 100){
         percentPower = percent;
     } else if(powerNumber > 100 && powerNumber <= 125){
-        percentPower = percent / 100 * 0.2;
+        percentPower = (percent / 100 * 0.2);
     } else if(powerNumber > 125 && powerNumber <= 150){
-        percentPower = percent / 100 * 0.3;
+        percentPower = (percent / 100 * 0.3);
     } else if(powerNumber > 150 && powerNumber <= 175){
-        percentPower = percent / 100 * 0.4;
+        percentPower = (percent / 100 * 0.4);
     } else if(powerNumber > 175 && powerNumber <= 200){
-        percentPower = percent / 100 * 0.5;
+        percentPower = (percent / 100 * 0.6);
     } else if(powerNumber > 200 && powerNumber <= 225){
-        percentPower = percent / 100 * 0.6;
+        percentPower = (percent / 100 * 0.8);
     } else if(powerNumber > 225 && powerNumber <= 250){
-        percentPower = percent / 100 * 0.65;
+        percentPower = (percent / 100 * 10);
     } else if(powerNumber > 250){
-        percentPower = percent / 100 * 0.7;
-    }*/
-    //percentSum = percent + (percentVolume + percentPower);
-    console.log(percentVolume)
+        percentPower = (percent / 100 * 13);
+    }
+    //console.log(percentPower);
+})
+// уменьшение стоимости в зависимости от возраста
+let percentAge;
+let ages = document.getElementsByName('age');
+ages.forEach(function(age){
+    age.addEventListener('click', function(){
+        if(young.checked){
+            percentAge = percentSum;
+        }else if(middle.checked){
+            percentAge = percentSum - (price / 100 * 20);
+        }else if(old.checked){
+            percentAge = percentSum - (price / 100 * 30);
+        }else if(oldest.checked){
+            percentAge = percentSum - (price / 100 * 40);
+        }
+        console.log(percentAge)
+    })
 })
 
-
-/*document.getElementById('btn').onclick = function() {
-//let value = document.querySelector('.brand__select').selectedOptions[0].value;
-//let index = brand.selectedIndex; //нашли все индексы наших option
-//let item1 = brand.options; //список всех наших option
-//let brandNew = item1[index].textContent;
-let percentDiesel = price + (price / 100 * 10);
-let percentGas = price + (price / 100 * 0.5);
-let percentElectricity = price + (price / 100 * 15);
-let percentUsedOneYoung = price - (price / 100 * 15);
-let percentUsedOneMiddle = price - (price / 100 * 25);
-let percentUsedOneOld = price - (price / 100 * 30);
-let percentUsedOneOldest = price - (price / 100 * 35);
-let percentBrokenOneYoung = price - (price / 100 * 40);
-let percentBrokenOneMiddle = price - (price / 100 * 45);
-
-switch(newAuto.checked){
-    case petrol.checked: 
-    document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${price}. Оплата будет производиться: ${pay}`;
-    break;
-    case diesel.checked: 
-    document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel}. Оплата будет производиться: ${pay}`;
-    break;
-    case gas.checked:
-    document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas}. Оплата будет производиться: ${pay}`;
-    break;
-    case electricity.checked:
-    document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity}. Оплата будет производиться: ${pay}`;   
-    break;
+document.getElementById('btn').onclick = function() {
+    if(newAuto.checked){
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentSum}. Оплата будет производиться: ${pay}`;
+    } else if(used.checked && one.checked){
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentAge}. Оплата будет производиться: ${pay}`;
+    } else if(used.checked && more.checked){
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 10)}. Оплата будет производиться: ${pay}`;
+    } else if(broken.checked){
+        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 50)}. Оплата будет производиться: ${pay}`;
+    }
 }
-switch (used.checked && one.checked){
-    case petrol.checked && young.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentUsedOneYoung}. Оплата будет производиться: ${pay}`;
-        break;
-    case diesel.checked && young.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel - (price / 100 * 15)}. Оплата будет производиться: ${pay}`;
-        break;
-    case gas.checked && young.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas - (price / 100 * 15)}. Оплата будет производиться: ${pay}`;
-        break;
-    case electricity.checked && young.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity - (price / 100 * 15)}. Оплата будет производиться: ${pay}`;
-        break;
-    case petrol.checked && middle.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentUsedOneMiddle}. Оплата будет производиться: ${pay}`;
-        break;
-    case diesel.checked && middle.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel - (price / 100 * 25)}. Оплата будет производиться: ${pay}`;
-        break;
-    case gas.checked && middle.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas - (price / 100 * 25)}. Оплата будет производиться: ${pay}`;
-        break;
-    case electricity.checked && middle.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity - (price / 100 * 25)}. Оплата будет производиться: ${pay}`;
-        break;
-    case petrol.checked && old.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentUsedOneOld}. Оплата будет производиться: ${pay}`;
-        break;
-    case diesel.checked && old.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentDiesel - (price / 100 * 30)}. Оплата будет производиться: ${pay}`;
-        break;
-    case gas.checked && old.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentGas - (price / 100 * 30)}. Оплата будет производиться: ${pay}`;
-        break; 
-    case electricity.checked && old.checked:
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentElectricity - (price / 100 * 30)}. Оплата будет производиться: ${pay}`;
-        break;          
-}
-
-}
-// создание объекта и из него селект
-/*for(let id in opel){
-    const option = document.createElement('option');
-    option.value = id;
-    option.text = opel[id];
-   // document.querySelector('.model__select').append(option);
-}
-for(let id in mazda){
-    const option = document.createElement('option');
-    option.value = id;
-    option.text = mazda[id];
-    //document.querySelector('.model__select').append(option);
-}
-for(let id in reno){
-    const option = document.createElement('option');
-    option.value = id;
-    option.text = reno[id];
-    //document.querySelector('.model__select').append(option);
-}
-for(let id in jaguar){
-    const option = document.createElement('option');
-    option.value = id;
-    option.text = jaguar[id];
-    //document.querySelector('.model__select').append(option);
-}*/
-/*
-//получение value марок
-// 1 вариант
-brand.addEventListener('change', function() {
-    const n = this.value;
-    //console.log(n)
-})
-  // 2 вариант
-brand.onchange = function(){
-    let item = brand.value;
-    //console.log(item)
-}*/
