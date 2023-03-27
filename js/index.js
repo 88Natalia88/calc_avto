@@ -121,26 +121,23 @@ function changePrice(){
 }
 //увеличение стоимости моделей в зависимости от топлива
 let percent;
-let fuels = document.getElementsByName('fuel');
-fuels.forEach(function(fuel){
-    fuel.addEventListener('change', function(){
-        if(petrol.checked){
-            percent = price;
-        }else if(diesel.checked){
-            percent = price + (price / 100 * 10);
-        }else if(gas.checked){
-            percent = price + (price / 100 * 0.5);
-        }else if(electricity.checked){
-            percent = price + (price / 100 * 15);
-        }
-        console.log(percent)
-    })
-})
+function changeSum(){
+    if(petrol.checked){
+        percent = price;
+    }else if(diesel.checked){
+        percent = price + (price / 100 * 10);
+    }else if(gas.checked){
+        percent = price + (price / 100 * 0.5);
+    }else if(electricity.checked){
+        percent = price + (price / 100 * 15);
+    }
+    console.log(percent)
+}
 //увеличение стоимости модели в зависимости от объема двигателя
 let percentVolume;
 let percentPower;
 let percentSum;// = percent + (percentVolume + percentPower);
-btn.addEventListener('click', function(){
+function changeVol(){
     let volumeNumber = volume.value;
     if(volumeNumber <=1.1){
         percentVolume = percent; 
@@ -155,8 +152,8 @@ btn.addEventListener('click', function(){
     } 
     console.log(percentVolume);
     
-})
-btn.addEventListener('click', function(){
+}
+function changePow(){
     let powerNumber = power.value;
     if(powerNumber <= 100){
         percentPower = percent;
@@ -178,7 +175,7 @@ btn.addEventListener('click', function(){
     percentSum = percent + (percentVolume + percentPower);
     console.log(percentPower);
     console.log(percentSum);
-})
+}
 //добавление класса с владельцами и возрастом авто
 const radios = document.querySelectorAll('input[type=radio][name="state"]');
 const ownersAll = document.querySelector('.ownersAll');
@@ -198,21 +195,18 @@ radio.addEventListener('change', function(){
 })
 // уменьшение стоимости в зависимости от возраста
 let percentAge;
-let ages = document.getElementsByName('age');
-ages.forEach(function(age){
-    age.addEventListener('click', function(){
-        if(young.checked){
-            percentAge = percentSum;
-        }else if(middle.checked){
-            percentAge = percentSum - (price / 100 * 20);
-        }else if(old.checked){
-            percentAge = percentSum - (price / 100 * 30);
-        }else if(oldest.checked){
-            percentAge = percentSum - (price / 100 * 40);
-        }
-        console.log(percentAge)
-    })
-})
+function changeAge(){
+    if(young.checked){
+        percentAge = percentSum;
+    }else if(middle.checked){
+        percentAge = percentSum - (price / 100 * 20);
+    }else if(old.checked){
+        percentAge = percentSum - (price / 100 * 30);
+    }else if(oldest.checked){
+        percentAge = percentSum - (price / 100 * 40);
+    }
+    console.log(percentAge)
+}
 //выбор оплаты
 let pay;
 btn.addEventListener('click', checkPay);
@@ -227,13 +221,17 @@ function checkPay(){
     console.log(pay);
 }
 document.getElementById('btn').onclick = function() {
+    changeSum();
+    changeVol();
+    changePow();
+    changeAge();
     if(newAuto.checked){
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentSum}. Оплата будет производиться: ${pay}`;
+        document.getElementById("text-price").textContent = `Примерная стоимость автомобиля: ${percentSum}. Оплата будет производиться: ${pay}`;
     } else if(used.checked && one.checked){
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentAge}. Оплата будет производиться: ${pay}`;
+        document.getElementById("text-price").textContent = `Примерная стоимость автомобиля: ${percentAge}. Оплата будет производиться: ${pay}`;
     } else if(used.checked && more.checked){
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 10)}. Оплата будет производиться: ${pay}`;
+        document.getElementById("text-price").textContent = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 10)}. Оплата будет производиться: ${pay}`;
     } else if(broken.checked){
-        document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 50)}. Оплата будет производиться: ${pay}`;
+        document.getElementById("text-price").textContent = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 50)}. Оплата будет производиться: ${pay}`;
     }
 }
