@@ -92,38 +92,6 @@ function addModel(){
         }
     }
 }
-//выбор оплаты
-let pay;
-btn.addEventListener('click', checkPay);
-function checkPay(){
-    let payment = document.getElementsByName('payment');
-    for(let i = 0; i < payment.length; i++){
-        if(payment[i].checked){
-            pay = payment[i].value;
-            break;
-        }
-    }
-    //console.log(pay);
-}
-
-//добавление класса с владельцами и возрастом авто
-const radios = document.querySelectorAll('input[type=radio][name="state"]');
-const ownersAll = document.querySelector('.ownersAll');
-const ageAll = document.querySelector('.ageAll');
-
-radios.forEach(function (radio){
-radio.addEventListener('change', function(){
-    if(used.checked || broken.checked){
-        ownersAll.style.display = "grid";
-        ageAll.style.display = "grid";
-    }else {
-        ownersAll.style.display = "none";
-        ageAll.style.display = "none";
-    }
-    //console.log(radio.value);
-})
-})
-
 //находим стоимость конкретной модели
 let price;
 btn.addEventListener('click', changePrice);
@@ -149,14 +117,13 @@ function changePrice(){
             price = jaguar[i].price;
         }
     }
-    //console.log(price);
+    console.log(price);
 }
-
 //увеличение стоимости моделей в зависимости от топлива
 let percent;
 let fuels = document.getElementsByName('fuel');
 fuels.forEach(function(fuel){
-    fuel.addEventListener('click', function(){
+    fuel.addEventListener('change', function(){
         if(petrol.checked){
             percent = price;
         }else if(diesel.checked){
@@ -166,50 +133,68 @@ fuels.forEach(function(fuel){
         }else if(electricity.checked){
             percent = price + (price / 100 * 15);
         }
-        //console.log(percent)
+        console.log(percent)
     })
 })
- //увеличение стоимости модели в зависимости от объема двигателя
+//увеличение стоимости модели в зависимости от объема двигателя
 let percentVolume;
 let percentPower;
-let percentSum = percent + (percentVolume + percentPower);
+let percentSum;// = percent + (percentVolume + percentPower);
 btn.addEventListener('click', function(){
     let volumeNumber = volume.value;
     if(volumeNumber <=1.1){
         percentVolume = percent; 
     }else if(volumeNumber >= 1.2 && volumeNumber <= 1.8){
-        percentVolume = (percent / 100 * 0.3);
+        percentVolume = percent / 100 * 0.3;
     } else if(volumeNumber > 1.8 && volumeNumber <= 2){
-        percentVolume =percent + (percent / 100 * 0.4);
+        percentVolume = percent / 100 * 0.4;
     } else if(volumeNumber > 2 && volumeNumber <= 3.3){
-        percentVolume =percent + (percent / 100 * 0.5);
+        percentVolume = percent / 100 * 0.5;
     } else if(volumeNumber >=3.5){
-        percentVolume = percent + (percent / 100 * 0.6);
+        percentVolume = percent / 100 * 0.6;
     } 
-    percentSum = percent + (percentVolume + percentPower);
-    //console.log(percentVolume);
-    //console.log(percentSum);
+    console.log(percentVolume);
+    
 })
 btn.addEventListener('click', function(){
     let powerNumber = power.value;
     if(powerNumber <= 100){
         percentPower = percent;
     } else if(powerNumber > 100 && powerNumber <= 125){
-        percentPower = (percent / 100 * 0.2);
+        percentPower = percent / 100 * 0.2;
     } else if(powerNumber > 125 && powerNumber <= 150){
-        percentPower = (percent / 100 * 0.3);
+        percentPower = percent / 100 * 0.3;
     } else if(powerNumber > 150 && powerNumber <= 175){
-        percentPower = (percent / 100 * 0.4);
+        percentPower = percent / 100 * 0.4;
     } else if(powerNumber > 175 && powerNumber <= 200){
-        percentPower = (percent / 100 * 0.6);
+        percentPower = percent / 100 * 0.6;
     } else if(powerNumber > 200 && powerNumber <= 225){
-        percentPower = (percent / 100 * 0.8);
+        percentPower = percent / 100 * 0.8;
     } else if(powerNumber > 225 && powerNumber <= 250){
-        percentPower = (percent / 100 * 10);
+        percentPower = percent / 100 * 10;
     } else if(powerNumber > 250){
-        percentPower = (percent / 100 * 13);
+        percentPower = percent / 100 * 13;
     }
-    //console.log(percentPower);
+    percentSum = percent + (percentVolume + percentPower);
+    console.log(percentPower);
+    console.log(percentSum);
+})
+//добавление класса с владельцами и возрастом авто
+const radios = document.querySelectorAll('input[type=radio][name="state"]');
+const ownersAll = document.querySelector('.ownersAll');
+const ageAll = document.querySelector('.ageAll');
+
+radios.forEach(function (radio){
+radio.addEventListener('change', function(){
+    if(used.checked || broken.checked){
+        ownersAll.style.display = "grid";
+        ageAll.style.display = "grid";
+    }else {
+        ownersAll.style.display = "none";
+        ageAll.style.display = "none";
+    }
+    console.log(radio.value);
+})
 })
 // уменьшение стоимости в зависимости от возраста
 let percentAge;
@@ -228,7 +213,19 @@ ages.forEach(function(age){
         console.log(percentAge)
     })
 })
-
+//выбор оплаты
+let pay;
+btn.addEventListener('click', checkPay);
+function checkPay(){
+    let payment = document.getElementsByName('payment');
+    for(let i = 0; i < payment.length; i++){
+        if(payment[i].checked){
+            pay = payment[i].value;
+            break;
+        }
+    }
+    console.log(pay);
+}
 document.getElementById('btn').onclick = function() {
     if(newAuto.checked){
         document.getElementById("text-price").innerHTML = `Примерная стоимость автомобиля: ${percentSum}. Оплата будет производиться: ${pay}`;
