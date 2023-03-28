@@ -134,6 +134,22 @@ function changeSum(){
     }
     console.log(percent)
 }
+/*const fuels = document.querySelectorAll('input[type=radio][name="fuel"]');
+fuels.forEach(function(fuel){
+    fuel.addEventListener('click', function(){
+        if(petrol.checked){
+            percent = price;
+        }else if(diesel.checked){
+            percent = price + (price / 100 * 10);
+        }else if(gas.checked){
+            percent = price + (price / 100 * 0.5);
+        }else if(electricity.checked){
+            percent = price + (price / 100 * 15);
+        }
+        console.log(percent)
+    })
+})*/
+
 //увеличение стоимости модели в зависимости от объема двигателя
 let percentVolume = 0;
 let percentPower = 0;
@@ -179,6 +195,7 @@ function changePow(){
     console.log(percentPower);
     console.log(percentSum);
 }
+
 //добавление класса с владельцами и возрастом авто
 const radios = document.querySelectorAll('input[type=radio][name="state"]');
 const ownersAll = document.querySelector('.ownersAll');
@@ -196,6 +213,7 @@ radio.addEventListener('change', function(){
     console.log(radio.value);
 })
 })
+
 // уменьшение стоимости в зависимости от возраста
 let percentAge = 0;
 btn.addEventListener('click', changeAge);
@@ -211,6 +229,22 @@ function changeAge(){
     }
     console.log(percentAge)
 }
+/*const ages = document.querySelectorAll('input[type=radio][name="age"]');
+ages.forEach(function(age){
+    age.addEventListener('change', function(){
+        if(young.checked){
+            percentAge = percentSum;
+        }else if(middle.checked){
+            percentAge = percentSum - (price / 100 * 20);
+        }else if(old.checked){
+            percentAge = percentSum - (price / 100 * 30);
+        }else if(oldest.checked){
+            percentAge = percentSum - (price / 100 * 40);
+        }
+        console.log(percentAge)
+    })
+})*/
+
 //выбор оплаты
 let pay;
 btn.addEventListener('click', checkPay);
