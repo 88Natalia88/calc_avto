@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="form"> 
+    <form id="form" name="form"> 
         <div class="main">
             <h1>Калькулятор стоимости автомобиля</h1>
     <div class="brand">
@@ -23,71 +23,51 @@
 <div class="model">
     <select class="model__select" id="sel_1">
         <option value ="" disabled selected hidden>Модель</option>
-       <!-- <option value="astra">Astra</option>
-        <option value="zafira">Zafira</option>
-        <option value="mokka">Mokka</option>
-        <option value="corsa">Corsa</option>
-        
-        <option value="logan">Logan</option>
-        <option value="sandero">Sandero</option>
-        <option value="duster">Duster</option>
-        <option value="kaptur">Kaptur</option>
-    
-        <option value="cx-5">CX-5</option>
-        <option value="cx-9">CX-9</option>
-        <option value="cx-3">CX-3</option>
-        <option value="cx-7">CX-7</option>
-       
-        <option value="e-pace">E-Pace</option>
-        <option value="f-pace">F-Pace</option>
-        <option value="i-pace">I-Pace</option>
-        <option value="f-type">F-Type</option>-->
-        
     </select>
 </div>
-<div class="fuelAll" aria-required="true">
-<label for="fuel">Тип топлива</label>
+<div class="fuelAll">
+<p>Тип топлива</p>
 <div>
-<input type="radio" name="fuel" id="petrol" value="бензин">Бензин <br>
-<input type="radio" name="fuel" id="diesel" checked value="дизель">Дизель<br>
-<input type="radio" name="fuel" id="gas" value="газ">Газ<br>
-<input type="radio" name="fuel" id="electricity" value="Электричество">Электричество
+<input type="radio" name="fuel" id="petrol" value="бензин"><label for="petrol">Бензин</label><br>
+<input type="radio" name="fuel" id="diesel" checked value="дизель"><label for="diesel">Дизель</label><br>
+<input type="radio" name="fuel" id="gas" value="газ"><label for="gas">Газ</label><br>
+<input type="radio" name="fuel" id="electricity" value="Электричество"><label for="electricity">Электричество</label>
 </div></div>
 <div class="volumeAll">
-<label for="volume">Объем двигателя, см<sup>3</sup></label>
-<input type="text" name="volume" id="volume" required>
+<label for="volume">Объем двигателя, см<sup>3</sup>(от 1.1 л до 3.5 л)</label>
+<input type="text" name="volume" id="volume" required minlength="3" maxlength="3">
 </div>
 <div class="powerAll">
     <label for="power">Мощность, л.с.</label>
-    <input type="text" name="power" id="power" required>
+    <input type="text" name="power" id="power" required minlength="3" maxlength="3">
 </div>
 <div class="stateAll">
-    <label for="state">Состояние автомобиля</label>
+    <p>Состояние автомобиля</p>
     <div>
-    <input type="radio" name="state" id="new" value="new" checked>Новый<br>
-    <input type="radio" name="state" id="used" value="used" >Подержаный<br>
-    <input type="radio" name="state" id="broken" value="broken">Битый<br>
+    <input type="radio" name="state" id="new" value="new" checked><labe for="new">Новый</labe><br>
+    <input type="radio" name="state" id="used" value="used"><labe for="used">Подержаный</labe><br>
+    <input type="radio" name="state" id="broken" value="broken"><labe for="broken">Битый</labe><br>
 </div></div>
 <div class="ownersAll">
-    <label for="owners">Количество владельцев</label>
+    <p>Количество владельцев</p>
     <div>
-    <input type="radio" name="owners" checked id="one">1-2 владельца<br>
-    <input type="radio" name="owners" id="more">более 3-х владельцев
+    <input type="radio" name="owners" checked id="one"><label for="one">1-2 владельца</label><br>
+    <input type="radio" name="owners" id="more"><label for="more">более 3-х владельцев</label>
 </div></div>
 <div class="ageAll">
-    <label for="age">Возраст автомобиля</label>
+    <p>Возраст автомобиля</p>
     <div>
-<input type="radio" name="age" id="young">Меньше 3-х лет<br>
-<input type="radio" name="age" checked id="middle">от 3 - 5 лет<br>
-<input type="radio" name="age" id="old">от 5 - 7 лет<br>
-<input type="radio" name="age" id="oldest">Больше 7 лет
+<input type="radio" name="age" id="young"><label for="young">Меньше 3-х лет</label><br>
+<input type="radio" name="age" checked id="middle"><label for="middle">от 3 - 5 лет</label><br>
+<input type="radio" name="age" id="old"><label for="old">от 5 - 7 лет</label><br>
+<input type="radio" name="age" id="oldest"><label for="oldest">Больше 7 лет</label>
 </div></div>
 <div class="paymentAll">
-    <label for="payment">Способ оплаты</label>
+    <p>Способ оплаты</p>
     <div id="pay">
-    <input type="radio" name="payment" id="card" value="Картой">Картой<br>
-    <input type="radio" name="payment" checked id="cash" value="Наличными">Наличными<br>
-    <input type="radio" name="payment" id="check" value="Счет на юридическое лицо">Счет на юридическое лицо
+    <input type="radio" name="payment" id="card" value="Картой"><label for="card">Картой</label><br>
+    <input type="radio" name="payment" checked id="cash" value="Наличными"><label for="cash">Наличными</label><br>
+    <input type="radio" name="payment" id="check" value="Счет на юридическое лицо"><label for="check">Счет на юридическое лицо</label>
 </div></div>
 <div class="button">
     <h5>* - все поля обязательны для заполнения</h5>

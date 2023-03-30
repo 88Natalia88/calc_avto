@@ -123,14 +123,18 @@ function changePrice(){
 let percent = 0;
 btn.addEventListener('click', changeSum);
 function changeSum(){
-    if(petrol.checked){
+    if(petrol.checked === true){
         percent = price;
-    }else if(diesel.checked){
+        statuses.fuel = true;
+    }else if(diesel.checked === true){
         percent = price + (price / 100 * 10);
-    }else if(gas.checked){
+        statuses.fuel = true;
+    }else if(gas.checked === true){
         percent = price + (price / 100 * 0.5);
-    }else if(electricity.checked){
+        statuses.fuel = true;
+    }else if(electricity.checked === true){
         percent = price + (price / 100 * 15);
+        statuses.fuel = true;
     }
     console.log(percent)
 }
@@ -157,7 +161,9 @@ let percentSum = 0;
 btn.addEventListener('click', changeVol);
 function changeVol(){
     let volumeNumber = volume.value;
-    if(volumeNumber <=1.1){
+    if(volume.value === " "){
+        document.getElementById("text-price").textContent = `Поле ${volume} не заполнено`;
+    }else if(volumeNumber <=1.1){
         percentVolume = percent; 
     }else if(volumeNumber >= 1.2 && volumeNumber <= 1.8){
         percentVolume = percent / 100 * 0.3;
@@ -174,7 +180,9 @@ function changeVol(){
 btn.addEventListener('click', changePow);
 function changePow(){
     let powerNumber = power.value;
-    if(powerNumber <= 100){
+    if(power.value === " "){
+        document.getElementById("text-price").textContent = `Поле ${power} не заполнено`;
+    } else if(powerNumber <= 100){
         percentPower = percent;
     } else if(powerNumber > 100 && powerNumber <= 125){
         percentPower = percent / 100 * 0.2;
@@ -218,13 +226,13 @@ radio.addEventListener('change', function(){
 let percentAge = 0;
 btn.addEventListener('click', changeAge);
 function changeAge(){
-    if(young.checked){
+    if(young.checked === true){
         percentAge = percentSum;
-    }else if(middle.checked){
+    }else if(middle.checked === true){
         percentAge = percentSum - (price / 100 * 20);
-    }else if(old.checked){
+    }else if(old.checked === true){
         percentAge = percentSum - (price / 100 * 30);
-    }else if(oldest.checked){
+    }else if(oldest.checked === true){
         percentAge = percentSum - (price / 100 * 40);
     }
     console.log(percentAge)
@@ -246,19 +254,29 @@ ages.forEach(function(age){
 })*/
 
 //выбор оплаты
-let pay;
+let pay = 0;
 btn.addEventListener('click', checkPay);
 function checkPay(){
     let payment = document.getElementsByName('payment');
     for(let i = 0; i < payment.length; i++){
-        if(payment[i].checked){
+        if(payment[i].checked === true){
             pay = payment[i].value;
+            statuses.payment = true;
             break;
         }
     }
     console.log(pay);
 }
-document.getElementById('btn').onclick = function() {
+
+const statuses = {
+    fuel: false,
+    volume: false,
+    power: false,
+    state: false,
+    payment: false,
+};
+
+btn.addEventListener('click', function() {
     if(newAuto.checked){
         document.getElementById("text-price").textContent = `Примерная стоимость автомобиля: ${percentSum}. Оплата будет производиться: ${pay}`;
     } else if(used.checked && one.checked){
@@ -268,4 +286,4 @@ document.getElementById('btn').onclick = function() {
     } else if(broken.checked){
         document.getElementById("text-price").textContent = `Примерная стоимость автомобиля: ${percentAge - (percentAge / 100 * 50)}. Оплата будет производиться: ${pay}`;
     }
-}
+}, { once: true});
