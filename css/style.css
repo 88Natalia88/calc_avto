@@ -44,3 +44,6 @@ select{
 .ownersAll, .ageAll{
     display: none;
 }
+input:required:valid {
+    border-color: #4fdaf0;
+}

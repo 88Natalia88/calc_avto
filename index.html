@@ -45,7 +45,7 @@
         
     </select>
 </div>
-<div class="fuelAll">
+<div class="fuelAll" aria-required="true">
 <label for="fuel">Тип топлива</label>
 <div>
 <input type="radio" name="fuel" id="petrol" value="бензин">Бензин <br>
@@ -55,11 +55,11 @@
 </div></div>
 <div class="volumeAll">
 <label for="volume">Объем двигателя, см<sup>3</sup></label>
-<input type="text" name="volume" id="volume">
+<input type="text" name="volume" id="volume" required>
 </div>
 <div class="powerAll">
     <label for="power">Мощность, л.с.</label>
-    <input type="text" name="power" id="power">
+    <input type="text" name="power" id="power" required>
 </div>
 <div class="stateAll">
     <label for="state">Состояние автомобиля</label>
@@ -90,6 +90,7 @@
     <input type="radio" name="payment" id="check" value="Счет на юридическое лицо">Счет на юридическое лицо
 </div></div>
 <div class="button">
+    <h5>* - все поля обязательны для заполнения</h5>
     <input type="button" id="btn" value="Рассчитать">
 </div>
 <div class="text">
