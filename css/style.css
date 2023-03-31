@@ -44,6 +44,7 @@ select{
 .ownersAll, .ageAll{
     display: none;
 }
-input:required:valid {
-    border-color: #4fdaf0;
+#text-price{
+    font-size: 18px;
+    text-align: center;
 }
