@@ -55,7 +55,7 @@ function addModel(){
     let item1 = brand.options; //список всех наших option
     //console.log(item1)
     document.querySelector('.model__select').innerHTML = null;
-    if(item1[1].selected === true){
+    if(item1[1].selected){
         for(let i = 0; i < opel.length; i++){
             const option = document.createElement('option');
             option.value = opel[i].value;
@@ -64,7 +64,7 @@ function addModel(){
             document.querySelector('.model__select').append(option);
         }
     }
-    if(item1[2].selected === true){
+    if(item1[2].selected){
         for(let i = 0; i < reno.length; i++){
             const option = document.createElement('option');
             option.value = reno[i].value;
@@ -73,7 +73,7 @@ function addModel(){
             document.querySelector('.model__select').append(option);
         }
     }
-    if(item1[3].selected === true){
+    if(item1[3].selected){
         for(let i = 0; i < mazda.length; i++){
             const option = document.createElement('option');
             option.value = mazda[i].value;
@@ -82,7 +82,7 @@ function addModel(){
             document.querySelector('.model__select').append(option);
         }
     }
-    if(item1[4].selected === true){
+    if(item1[4].selected){
         for(let i = 0; i < jaguar.length; i++){
             const option = document.createElement('option');
             option.value = jaguar[i].value;
@@ -92,46 +92,47 @@ function addModel(){
         }
     }
 }
+
 //находим стоимость конкретной модели
 let price = 0;
 btn.addEventListener('click', changePrice);
 function changePrice(){
     let modelNew = model.value;
-    for(let i = 0; i < opel.length; i++){
-        if(modelNew === opel[i].value){
-            price = opel[i].price;
-    }
+    opel.forEach(function(elem, i){
+        if(modelNew === elem.value){
+            price = elem.price;
+        }
+    });
+    reno.forEach(function(elem, i){
+        if(modelNew === elem.value){
+            price = elem.price;
+        }
+    })
+    mazda.forEach(function(elem, i){
+        if(modelNew === elem.value){
+            price = elem.price;
+        }
+    })
+    jaguar.forEach(function(elem, i){
+        if(modelNew === elem.value){
+            price = elem.price;
+        }
+    })
+    //console.log(price);
 }
-    for(let i = 0; i < reno.length; i++){
-        if(modelNew === reno[i].value){
-            price = reno[i].price;
-        }
-    }
-    for(let i = 0; i < mazda.length; i++){
-        if(modelNew === mazda[i].value){
-            price = mazda[i].price;
-        }
-    }
-    for(let i = 0; i < jaguar.length; i++){
-        if(modelNew === jaguar[i].value){
-            price = jaguar[i].price;
-        }
-    }
-    console.log(price);
-}
+
 //увеличение стоимости моделей в зависимости от топлива
 let percent = 0;
 btn.addEventListener('click', changeSum);
 function changeSum(){
-    if(petrol.checked === true){
+    if(petrol.checked){
         percent = price;
-    }else if(diesel.checked === true){
+    }else if(diesel.checked){
         percent = price + (price / 100 * 10);
-    }else if(gas.checked === true){
+    }else if(gas.checked){
         percent = price + (price / 100 * 0.5);
-    }else if(electricity.checked === true){
+    }else if(electricity.checked){
         percent = price + (price / 100 * 15);
-
     }
     console.log(percent)
 }
@@ -171,7 +172,7 @@ function changeVol(){
     } else if(volumeNumber >=3.5){
         percentVolume = percent / 100 * 0.6;
     } 
-    console.log(percentVolume);
+    //console.log(percentVolume);
     
 }
 btn.addEventListener('click', changePow);
@@ -197,8 +198,8 @@ function changePow(){
         percentPower = percent / 100 * 13;
     }
     percentSum = percent + (percentVolume + percentPower);
-    console.log(percentPower);
-    console.log(percentSum);
+    //console.log(percentPower);
+    //console.log(percentSum);
 }
 
 //добавление класса с владельцами и возрастом авто
@@ -215,7 +216,7 @@ radio.addEventListener('change', function(){
         ownersAll.style.display = "none";
         ageAll.style.display = "none";
     }
-    console.log(radio.value);
+    //console.log(radio.value);
 })
 })
 
@@ -223,16 +224,16 @@ radio.addEventListener('change', function(){
 let percentAge = 0;
 btn.addEventListener('click', changeAge);
 function changeAge(){
-    if(young.checked === true){
+    if(young.checked){
         percentAge = percentSum;
-    }else if(middle.checked === true){
+    }else if(middle.checked){
         percentAge = percentSum - (price / 100 * 20);
-    }else if(old.checked === true){
+    }else if(old.checked){
         percentAge = percentSum - (price / 100 * 30);
-    }else if(oldest.checked === true){
+    }else if(oldest.checked){
         percentAge = percentSum - (price / 100 * 40);
     }
-    console.log(percentAge)
+    //console.log(percentAge)
 }
 /*const ages = document.querySelectorAll('input[type=radio][name="age"]');
 ages.forEach(function(age){
@@ -256,12 +257,12 @@ btn.addEventListener('click', checkPay);
 function checkPay(){
     let payment = document.getElementsByName('payment');
     for(let i = 0; i < payment.length; i++){
-        if(payment[i].checked === true){
+        if(payment[i].checked){
             pay = payment[i].value;
             break;
         }
     }
-    console.log(pay);
+    //console.log(pay);
 }
 
 btn.addEventListener('click', function() {
