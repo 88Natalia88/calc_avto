@@ -15,8 +15,7 @@ A project to create a calculator for calculating the cost of cars, depending on 
 ​
 ![Image alt](https://github.com/88Natalia88/calc_avto/blob/main/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9.png)
 
-[Сlick me](https://github.com/88Natalia88/calc_avto.git)
-​
+
 ## Author
 ​
 Name<br>
